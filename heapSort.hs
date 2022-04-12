@@ -1,8 +1,10 @@
+--Main function
 main :: IO ()
 main = do
     putStrLn ( "Unsorted: " ++ show listToSort)
     putStrLn ("Sorted: " ++ show (heapSort listToSort))
-   
+
+--Input
 listToSort :: [Integer]
 listToSort = [13, 15, 8, 7, 234, 124, 56, 11, 18, 19, 6, 20]
 
