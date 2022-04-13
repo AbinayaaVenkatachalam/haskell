@@ -43,6 +43,7 @@ maxHeapify xs i | not (hasAnyChild xs i) = xs
                     if xs !! (leftChild i) > xs !! i then maxHeapify (swap xs (leftChild i) i) (leftChild i) else xs
                 | otherwise =
                     if xs !! (rightChild i) > xs !! i then maxHeapify (swap xs (rightChild i) i) (rightChild i) else xs
+                    
 -- Fix the heap after removing the largest element from the heap
 extract :: Ord a => [a] -> [a]
 extract [] = []
@@ -90,6 +91,7 @@ extracted [] = []
 extracted [_] = []
 extracted xs = minHeapify ((last xs):take (length xs - 2) (tail xs)) 0
 
+---COMMON FUNCTIONS---
 
 -- Swap the values stored in two positions in a list
 swap :: [a] -> Int -> Int -> [a]
