@@ -63,13 +63,13 @@ hSort' :: Ord a => [a] -> [a] -> [a]
 hSort' [] out = out
 hSort' h out = hSort' (extracted h) out ++ [head h]
 
--- Construct a max heap (as a list) from a given input list
+-- Construct a min heap (as a list) from a given input list
 minHeap :: Ord a => [a] -> [a]
 minHeap [] = []
 minHeap [x] = [x]
 minHeap xs = minHeap' xs (div (length xs) 2)
 
--- Recursive helper function for maxHeap
+-- Recursive helper function for minHeap
 minHeap' :: Ord a => [a] -> Int -> [a]
 minHeap' xs 0 = minHeapify xs 0
 minHeap' xs i = minHeap' (minHeapify xs i) (i-1)
@@ -85,7 +85,7 @@ minHeapify xs i | not (hasAnyChild xs i) = xs
                 | otherwise =
                     if xs !! (rightChild i) < xs !! i then maxHeapify (swap xs (rightChild i) i) (rightChild i) else xs
                     
--- Fix the heap after removing the largest element from the heap
+-- Fix the heap after removing the smallest element from the heap
 extracted :: Ord a => [a] -> [a]
 extracted [] = []
 extracted [_] = []
